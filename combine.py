@@ -45,7 +45,8 @@ def save_data(pdf):
         if not os.path.exists(to_save_folder):
             os.makedirs(to_save_folder)
 
-        df.columns = ['Boys', 'Girls']
+        df = df[['F', 'M']]
+        df.columns = ['Girls', 'Boys']
         to_save = os.path.join(to_save_folder, name.lower() + '.csv')
         # df.to_csv(to_save, index=False)
         df.to_csv(to_save, index=True)
